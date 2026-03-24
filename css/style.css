@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #3376c7, #5fa8ff);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;   /* empilha título + conteúdo */
+  align-items: center;      /* centraliza horizontal */
+}
+
+.titulo {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+}
+
+.titulo h1 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+.titulo h3 {
+  font-weight: normal;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* 📦 Container principal */
+.container {
+  width: 90%;
+  max-width: 350px;
+
+}
+
+/* 🔍 Busca */
+.search-box {
+    margin-top: 20px;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.search-box button {
+  padding: 10px;
+  border: none;
+  background: #474d4e;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #333;
+}
+
+.weather-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Cidade */
+.city {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+/* Parte principal (ícone + temperatura) */
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.weather-main img {
+  width: 60px;
+}
+
+.temp {
+  font-size: 2.5rem;
+}
+
+/* Descrição */
+.description {
+  margin-top: 5px;
+  color: #555;
+  text-transform: capitalize;
+}
+
+.feels-like {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  color: #777;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.detail-box {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+.detail-box span {
+  font-size: 1.5rem;
+}
+
+.detail-box p {
+  font-weight: bold;
+}
+
+.detail-box small {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Versão para telas do computador */
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 500px;
+  }
+
+  .weather-card {
+    padding: 30px;
+  }
+
+  .temp {
+    font-size: 3rem;
+  }
+
+  .city {
+    font-size: 1.8rem;
+  }
+
+  .details {
+    gap: 15px;
+  }
+
+  .detail-box {
+    padding: 15px;
+  }
+
+  .search-box input {
+    font-size: 1rem;
+  }
+
+  .search-box button {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Clima Agora</title>
+</head>
+<body>
+    <div class="titulo">
+          <h1>Clima Agora</h1>
+        <h3>Site feito especialmente para você!</h3>
+    </div>
+  
+
+    <div class="conteiner">
+
+        <!--Essa seção é para fazer a musca da cidade para saber o clima-->
+        <!--Usei section para agrupar pois a div é mais usado para organizar visualmente  e queria uma seção mais estrutural do documento-->
+        <section class="search-box">
+            <input type="text" placeholder="Digite a cidade para busca..." id="cidade">
+            <button class="buscar"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaUlEQVR4nO2Wz0pCQRjFf2i6ydop9ArZO1T7FhrlK0TSH+spxNcw61GCaJMFJZn71rqolfHBufBtwjtzLxLkgYELM+ecud98cxhY4Q+hDLSAW+ANmGnY90BztiZXHAIfwHzBGAPNPAwLQM8JPwEXwDawrlEHLoGhW9cVNxo9CX0BJwvEbO5UaxPz6PLOJbQbwNtz5o1Q07I7U/vTULTFfQdKIcSWO9OYsyoCz9I4CiHeiXROPDrSuAkhjUSy7o1FXRp2z1NjKlIlg/GGNKbLNt6MMR7lUOod19mpMRDJEikW19Lox1ynYYbr9CKN49AAGYtoMRiKM3EnwFooueki02IwLfaBb3EPiETXmbdVwt9Q1J8mpp9ANda44MznisGOwqGiYd175c40MU3W18iAhq7FoofAROWtuqzObF5S4Fv2vioYZtpQX93rG6mWp3koqu5lYpvd4r+Y11zZH5ZpnJg/AvfLNl4Bww/dcoIlpDH7/gAAAABJRU5ErkJggg==" alt="search--v1"></button>
+        </section>
+
+        <section class="weather-card">
+            <h2 class="city">Recife</h2>
+            <div class="weather-main">
+                <img src="https://openweathermap.org/img/wn/01d.png" alt="icone clima">
+                <h3 class="temp">29°C</h3>
+            </div>
+
+            <p class="description">Ensolarado</p>
+            <p class="feels-like">Sensação 31°C</p>
+
+            <div class="details">
+                <div class="detail-box">
+                <p>70%</p>
+                <small>Umidade</small>
+                </div>
+
+                <div class="detail-box">
+                <span></span>
+                <p>12 km/h</p>
+                <small>Vento</small>
+                </div>
+        </div>
+
+        </section>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+    
+</body>
+</html>
