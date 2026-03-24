@@ -1,5 +1,3 @@
-const apiKey = "8d996ea77014beb6433b3b85e4d40edc";
-
 /* Elementos */
 const inputCidade = document.getElementById("cidade");
 const botaoBuscar = document.querySelector(".buscar");
@@ -14,37 +12,52 @@ const vento = document.querySelector(".details .detail-box:nth-child(2) p");
 
 const icone = document.querySelector(".weather-main img");
 
-/* Função principal */
+/* Buscare */
+async function buscarCoordenadas(cidade) {
+  const resposta = await fetch(
+    `https://geocoding-api.open-meteo.com/v1/search?name=${cidade}&count=1&language=pt&format=json`
+  );
+
+  const dados = await resposta.json();
+
+  if (!dados.results) {
+    throw new Error("Cidade não encontrada");
+  }
+
+  return dados.results[0];
+}
+
+/* Buscar clima */
 async function buscarClima(cidade) {
   try {
-    const resposta = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`
-    );
+    const local = await buscarCoordenadas(cidade);
 
-    if (!resposta.ok) {
-      throw new Error("Cidade não encontrada");
-    }
+    const resposta = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${local.latitude}&longitude=${local.longitude}&current_weather=true`
+    );
 
     const dados = await resposta.json();
 
-    atualizarTela(dados);
+    atualizarTela(dados, local);
 
   } catch (erro) {
     alert("Erro: " + erro.message);
   }
 }
 
-/* 🖥️ Atualiza HTML */
-function atualizarTela(dados) {
-  cidadeNome.textContent = dados.name;
-  temperatura.textContent = Math.round(dados.main.temp) + "°C";
-  descricao.textContent = dados.weather[0].description;
-  sensacao.textContent = "Sensação: " + Math.round(dados.main.feels_like) + "°C";
+function atualizarTela(dados, local) {
+  cidadeNome.textContent = local.name;
 
-  umidade.textContent = dados.main.humidity + "%";
-  vento.textContent = dados.wind.speed + " km/h";
+  const clima = dados.current_weather;
 
-  icone.src = `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`;
+  temperatura.textContent = Math.round(clima.temperature) + "°C";
+  descricao.textContent = "Clima atual";
+  sensacao.textContent = "Vento: " + clima.windspeed + " km/h";
+
+  umidade.textContent = "--"; 
+  vento.textContent = clima.windspeed + " km/h";
+
+  icone.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
 }
 
 /* Botão */
@@ -59,14 +72,14 @@ botaoBuscar.addEventListener("click", () => {
   buscarClima(cidade);
 });
 
-/* Enter para buscar */
+/* Enter */
 inputCidade.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     botaoBuscar.click();
   }
 });
 
-/* Clima inicial */
+/* Inicial */
 window.addEventListener("load", () => {
   buscarClima("Recife");
 });
