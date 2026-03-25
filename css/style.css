@@ -11,7 +11,7 @@ body {
 
   display: flex;
   flex-direction: column;   /* empilha título + conteúdo */
-  align-items: center;      /* centraliza horizontal */
+  align-items: center;      /* centraliza horizontalmente */
 }
 
 .titulo {
@@ -31,16 +31,16 @@ body {
   opacity: 0.9;
 }
 
-/* 📦 Container principal */
+/* Container principal */
 .container {
   width: 90%;
   max-width: 350px;
 
 }
 
-/* 🔍 Busca */
+/* Busca */
 .search-box {
-    margin-top: 20px;
+  margin-top: 20px;
   display: flex;
   margin-bottom: 15px;
 }
@@ -75,7 +75,7 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Cidade */
+/* Cidade tamanho da font e margem */
 .city {
   font-size: 1.4rem;
   margin-bottom: 5px;
